@@ -1,40 +1,49 @@
 #include <stdio.h>
+int main () {
+   char coluna[10]={'a','b','c','d','e','f','g','h','i','j'};//caracteres responsaveis pelas colunas do jogo
+   int navio1[3]={3,3,3};//primeiro navio
+   int navio2[3]={3,3,3};//segundo navio
 
-// Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
-
-int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
-
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
-
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
-
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
-    
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
-
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
-
-    return 0;
+   int batalhanaval [10] [10] = {
+   {0,0,0,0,0,0,0,0,0,0},
+   {0,0,0,0,0,0,0,0,0,0},
+   {0,0,0,0,0,0,0,0,0,0},
+   {0,0,0,0,0,0,0,0,0,0},
+   {0,0,0,0,0,0,0,0,0,0},
+   {0,0,0,0,0,0,0,0,0,0},
+   {0,0,0,0,0,0,0,0,0,0},
+   {0,0,0,0,0,0,0,0,0,0},
+   {0,0,0,0,0,0,0,0,0,0},
+   {0,0,0,0,0,0,0,0,0,0}
+};//mapa da jogo batalha naval inicializado na variacel "batalhanaval", 2D 10*10
+int validacao[6]={
+batalhanaval [1][0] = navio1[0],//1/3 do navio
+batalhanaval [1][1] = navio1[1],//1/3 do navio
+batalhanaval [1][2] = navio1[2],//1/3 do navio
+batalhanaval [2][1] = navio2[0],//1/3 do navio
+batalhanaval [3][1] = navio2[1],//1/3 do navio
+batalhanaval [4][1] = navio2[2],//1/3 do navio
+};
+printf("   ");//espaço
+for(int r = 0; r < 10 ; r++ ){//repetição para os caracteres das colunas
+  printf("%c  ", coluna[r]);//imprime os caracteres das colunas
+    }
+      printf("\n");//gera nova linha após a organização das colunas
+        int n = 1;//declara variavel multiuso
+      for(int b = 0; b < 10 ; b++){//imprime o tabuleiro e linhas 1-10
+        if(b + n ==10){//caso o numero seja 10 essa condição usa "if" e descarta else, caso contrario else é executado(a diferença é um espaço a menos na linha 10, para que não desorganize toda a linha 10 do mapa)
+          printf("%d ", n + b);//imprime o n(var multiuso) soma com b(usada como condição no loop, como aproveitamento)
+}else{
+            printf("%d  ", n + b);//executado para todos os casos que antecedem b + n = 10
 }
+   for(int c = 0; c < 10 ; c++){//estrutura de repetição interna que usa b em função de c, uma matriz, e imprime o tabuleiro
+   
+   printf("%d  ",batalhanaval[b][c]);//imprime o tabuleiro
+   
+
+   }
+   printf("\n");//quebra o texto ao fim de cada execução completa do loop interno 
+   }
+
+   
+} 
